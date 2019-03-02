@@ -77,7 +77,7 @@ For the standardisation process, we naturally choose 2007 as a threshold to take
 
 The diagram below shows the pipeline
 
-![1](/Users/Thomas/Downloads/img/1.png)
+![1](https://github.com/thomaspernet/Chinese_Trade_Data/blob/master/img/1.png)
 
 The overall process is in the file named `01_all_process.sh`  and a jupyter notebook. The `sh` file deals with the Stata part while Python takes care of the remaining stages. 
 
