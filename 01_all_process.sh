@@ -7,7 +7,7 @@ export YEAR=2006
 export THRESHOLD=2006
 export WORKING_PATH="/Users/Thomas/Downloads/Stata_translate"
 export FILENAME=$WORKING_PATH/data_$YEAR.rar
-export EXTRACT_FOLDER="data$YEAR"
+export EXTRACT_FOLDER="data_$YEAR"
 
 export PATH=$PATH:/Applications/Stata/StataMP.app/Contents/MacOS 
 echo "Working directory is $WORKING_PATH"
