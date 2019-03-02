@@ -65,7 +65,7 @@ The years before 2006 included are written in plain english. After 2006, there a
 
 2.  Import/export variable encoding
 
-The import/export variable is encoded differently for 2000/01/02/03/04/05/06/09/10 and 2007/2008 years. The former group is encoded as follow: 进口 for import and 出口 for export while the later group is 0 for import and 1 for export. 
+The import/export variable is encoded differently from 2000 to 2006 and 22007 to 2010. The former group is encoded as follow: 进口 for import and 出口 for export while the later group is 1 for import and 0 for export. 
 
 3. One file vs chunk files
 

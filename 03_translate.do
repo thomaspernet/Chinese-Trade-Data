@@ -1,4 +1,5 @@
-cd /Users/Thomas/Downloads/Stata_translate/inf_2007
+cd /Users/Thomas/Downloads/Stata_translate/sup_2007 
+
 unicode encoding set gbk
 set more off
 local list : dir . files "*tradedata*.dta"

@@ -3,7 +3,7 @@
 ################### DEFINE WORKING PATH ################
 ########################################################
 
-export YEAR=2006
+export YEAR=2009
 export THRESHOLD=2006
 export WORKING_PATH="/Users/Thomas/Downloads/Stata_translate"
 export FILENAME=$WORKING_PATH/data_$YEAR.rar
@@ -32,10 +32,10 @@ then
 	echo "Next step: Creating intermediate files" &&
 	stata-mp -e do sup_2007/02_create_int_files &&
 	rm temp.dta &&
-	bash move_to_translate.sh && 
+	bash 04_move_to_translate.sh && 
 	echo "Translation done, moving to dataset prepation" &&
 	find . -name "*.dta" -size -160k -delete &&
-	stata-mp -e do sup_2007/04_change_var_name &&
+	stata-mp -e do sup_2007/05_change_var_name &&
 	echo "Done preparing the file. Move to Python" &&
 	rm *.log &&
 	rm $FILENAME
@@ -48,7 +48,7 @@ else
 	echo "Next step: Creating intermediate files" &&
 	stata-mp -e inf_2007/02_create_int_files.do &&
 	rm temp.dta &&
-	bash move_to_translate.sh &&
+	bash 04_move_to_translate.sh &&
 	echo "Translation done, moving to dataset prepation" &&
 	stata-mp -e do inf_2007/05_keep_var &&
 	echo "Done preparing the file. Move to Python" &&
