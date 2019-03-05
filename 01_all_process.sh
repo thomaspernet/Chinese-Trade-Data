@@ -3,7 +3,7 @@
 ################### DEFINE WORKING PATH ################
 ########################################################
 
-export YEAR=2009
+export YEAR=2010
 export THRESHOLD=2006
 export WORKING_PATH="/Users/Thomas/Downloads/Stata_translate"
 export FILENAME=$WORKING_PATH/data_$YEAR.rar
@@ -26,7 +26,7 @@ then
 	cd $WORKING_PATH
 	echo "Extract rar"
 	open $FILENAME &&
-	sleep 240 &&
+	sleep 300 &&
 	mv $EXTRACT_FOLDER/*.dta $WORKING_PATH &&
 	rmdir $EXTRACT_FOLDER &&
 	echo "Next step: Creating intermediate files" &&
@@ -44,7 +44,7 @@ else
 	cd $WORKING_PATH
 	echo "Extract rar"
 	open $FILENAME &&
-	sleep 240 && 
+	sleep 300 && 
 	echo "Next step: Creating intermediate files" &&
 	stata-mp -e inf_2007/02_create_int_files.do &&
 	rm temp.dta &&

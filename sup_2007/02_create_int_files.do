@@ -1,6 +1,6 @@
 cd /Users/Thomas/Downloads/Stata_translate/
 
-local list : dir . files "*data2006_*.dta"
+local list : dir . files "*data2010_*.dta"
 local n = 0
 foreach f of local list {
 	local n = `n' + 1
@@ -15,7 +15,7 @@ foreach f of local list {
       		use temp.dta, clear
       		keep if sav == `code'
       		compress
-      		save tradedata-2006-`n'-`code', replace
+      		save tradedata-2010-`n'-`code', replace
       		use temp.dta, clear
       		drop if sav == `code'
       		save temp.dta, replace

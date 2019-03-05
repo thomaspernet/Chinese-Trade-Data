@@ -24,6 +24,10 @@ The files are accessibles here:
 - Big Query (upon request)
 - Baidu Yun
 
+## Summary Statistics
+
+<div class="infogram-embed" data-id="ae0d032f-2dd9-412a-afdd-a6951842f1a5" data-type="interactive" data-title="Chinese_trade"></div><script>!function(e,t,s,i){var n="InfogramEmbeds",o=e.getElementsByTagName("script")[0],d=/^http:/.test(e.location)?"http:":"https:";if(/^\/{2}/.test(i)&&(i=d+i),window[n]&&window[n].initialized)window[n].process&&window[n].process();else if(!e.getElementById(s)){var r=e.createElement("script");r.async=1,r.id=s,r.src=i,o.parentNode.insertBefore(r,o)}}(document,0,"infogram-async","https://e.infogram.com/js/dist/embed-loader-min.js");</script><div style="padding:8px 0;font-family:Arial!important;font-size:13px!important;line-height:15px!important;text-align:center;border-top:1px solid #dadada;margin:0 30px"><a href="https://infogram.com/ae0d032f-2dd9-412a-afdd-a6951842f1a5" style="color:#989898!important;text-decoration:none!important;" target="_blank">Chinese_trade</a><br><a href="https://infogram.com" style="color:#989898!important;text-decoration:none!important;" target="_blank" rel="nofollow">Infogram</a></div>
+
 ## Why Normalized the data
 
 A rigorous works has been applied thorough the pipeline to normalised the data. The idea is to access the data at anytime, fast and with little data preparation. 
@@ -107,29 +111,23 @@ This process is divided into two parts:
 4. Prepare the dataset with Python
 
 - Download Extra data from [Google Drive](https://drive.google.com/open?id=1wTyYGYPEmmxA-owdrPOJlBSnwuj2MQcp)
-
 - In the jupyter notebook, we load the data from Google Drive, not locally. 
-
 - Extract city name from a list 
-
 - - The cities come from [here](http://data.acmr.com.cn/member/city/city_md.asp)
   - They have been proceeding with R, from this [script](https://drive.google.com/open?id=1zSG7TZS_-3lB8Xd6MEMADeQHp6sZCyK6)
+  - If we can’t find the cites in the list, then we use the company names
+    - If we can’t find the cities in the company name, then we use this list 
+    - ['省', '内蒙古自治区', '西藏自治区', '新疆维吾尔', '广西壮族']
+    - Else we set it to 其他
 
 - Deal with the business name
 
   - Extract business type from company name if the company name is null
-  - Remove other Null row from other columns
-
+  - If can’t find business type then we set it to 其他
 - Deal with intermediate firms
 
   - If company name includes the following 进出口, 贸易, 外贸,外经, 经贸, 工贸, 科贸, then there re intermediates firms
-
-- Merge only the countries from the list of countries 
-
-  - List of countries also comes from an above R script
-
 - We removed all the rows with NaN, whatever the columns
-
 - We aggregated the data with the following variables 
 
   - 'Date', 
@@ -141,7 +139,6 @@ This process is divided into two parts:
   - 'Imp_exp'
   - 'HS',
   - ‘Origin_and_destination'
-
 - If any of those variables has a NAN, it won’t be aggregated!
 
 5. Move to Google cloud storage 
@@ -149,8 +146,5 @@ This process is divided into two parts:
 6. Move to Big Query
 
 That's it, the program takes several hours to translate all the files.
-
-## Summary data
-
 
 

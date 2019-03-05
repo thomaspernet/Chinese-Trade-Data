@@ -32,8 +32,8 @@ foreach f of local list {
 	drop if hs6 >"980000"
 	drop HS
 	rename hs6 HS
-	gen x = "进口" if imp_exp == 0 & (Date == 2007 | Date == 2008)
-	replace x  = "出口"  if imp_exp == 1 & (Date == 2007 | Date == 2008)
+	gen x = "进口" if imp_exp == 1 & (Date == 2007 | Date == 2008 | Date == 2009 | Date == 2010)
+	replace x  = "出口"  if imp_exp == 0 & (Date == 2007 | Date == 2008 |Date == 2009 | Date == 2010)
 	foreach var of varlist x {
     	capture assert mi(`var')
      	if !_rc {
