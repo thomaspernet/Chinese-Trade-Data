@@ -1,1 +1,5 @@
 theme: jekyll-theme-slate
+title: Chinese Trade Data 2000-2010
+description: This program proposes to normalise the Chinese Trade Data in a very simple way. The final table is stored in Google Big Query, ready to work with!
+header:
+  image: https://github.com/thomaspernet/Chinese_Trade_Data/raw/master/img/1.png
