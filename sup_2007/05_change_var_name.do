@@ -12,17 +12,19 @@ foreach f of local list {
 	rename _企业编码 ID
 	rename _经营单位 Company_name
 	rename _消费地进口or生产地出口 city 
-	rename _海关口岸 Port 
+	rename _单位地址 address
+	*rename _海关口岸 Port 
 	rename _企业性质 Business_type 
 	rename _起运国或目的国 Origin_and_destination 
 	rename _贸易方式 Trade_type 
-	rename _中转国 intermediate_country 
+	*rename _中转国 intermediate_country 
 	rename _金额 value 
 	rename _数量 Quantity
-	keep Date imp_exp HS ID Company_name city Port Business_type Origin_and_destination Trade_type intermediate_country value Quantity
+	keep Date imp_exp HS ID Company_name city address Business_type Origin_and_destination Trade_type value Quantity
 	*drop if imp_exp ==""
 	drop if Origin_and_destination ==""
-	drop if city ==""
+	*drop if city ==""
+	drop if ID ==""
 	drop if Quantity ==0
 	tostring HS, gen(hs6)
 	drop HS
@@ -45,7 +47,9 @@ foreach f of local list {
  			}
  		}
  	tab imp_exp
-	export delimited using "`f'.csv", replace
+	order Company_name, last
+	order address, last
+	export delimited using "`f'.csv" , replace
 	erase "`f'"
 }
 

@@ -115,7 +115,9 @@ This process is divided into two parts:
 - Extract city name from a list 
 - - The cities come from [here](http://data.acmr.com.cn/member/city/city_md.asp)
   - They have been proceeding with R, from this [script](https://drive.google.com/open?id=1zSG7TZS_-3lB8Xd6MEMADeQHp6sZCyK6)
-  - If we can’t find the cites in the list, then we use the company names
+  - If we can’t find the cites in the list, then we use:
+    - the adress
+    - If some firms have missing values, we will use the company name.
     - If we can’t find the cities in the company name, then we use this list 
     - ['省', '内蒙古自治区', '西藏自治区', '新疆维吾尔', '广西壮族']
     - Else we set it to 其他
@@ -131,10 +133,10 @@ This process is divided into two parts:
 - We aggregated the data with the following variables 
 
   - 'Date', 
-
   - 'ID',
   - 'Business_type', 
   - 'Trade_type', 
+  - 'province',
   - 'City'
   - 'Imp_exp'
   - 'HS',

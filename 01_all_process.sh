@@ -3,7 +3,7 @@
 ################### DEFINE WORKING PATH ################
 ########################################################
 
-export YEAR=2010
+export YEAR=2006
 export THRESHOLD=2006
 export WORKING_PATH="/Users/Thomas/Downloads/Stata_translate"
 export FILENAME=$WORKING_PATH/data_$YEAR.rar
@@ -34,7 +34,7 @@ then
 	rm temp.dta &&
 	bash 04_move_to_translate.sh && 
 	echo "Translation done, moving to dataset prepation" &&
-	find . -name "*.dta" -size -160k -delete &&
+	find . -name "*.dta" -size -20k -delete &&
 	stata-mp -e do sup_2007/05_change_var_name &&
 	echo "Done preparing the file. Move to Python" &&
 	rm *.log &&

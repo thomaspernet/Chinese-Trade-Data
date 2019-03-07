@@ -5,9 +5,10 @@ local list : dir . files "*tradedata*.dta"
 foreach f of local list {
 	use "`f'", clear
 	display "`f'"
-	keep imp_exp ID HS Company_name city Business_type Origin_and_destination Port Trade_type intermediate_country value Quantity Date
+	keep imp_exp ID HS Company_name city Business_type Origin_and_destination Trade_type value Quantity Date address
 
-	tab imp_exp
+	order Company_name, last
+	order address, last
 	export delimited using "`f'.csv", replace
 	erase "`f'"	
 }
