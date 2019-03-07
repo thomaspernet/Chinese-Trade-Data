@@ -16,13 +16,13 @@ The final dataset is composed of eleven tables, for each year between 2000 and 2
 - `HS`
 - `Origin_and_destination`
 - `value`
-- `Quantity
+- `Quantity`
 
 The files are accessibles here:
 
 - [Google Drive](https://drive.google.com/open?id=1FpH_YlHAdSXf84k_yuJkuMqKZ4Htj713)
 - Big Query (upon request)
-- [Baidu Yun](链接: https://pan.baidu.com/s/168PzE8TpAXfQIUBkFW2pHA 提取码: gwcu 复制这段内容后打开百度网盘手机App，操作更方便哦)
+- [Baidu Yun](https://pan.baidu.com/s/168PzE8TpAXfQIUBkFW2pHA)
   - password: *gwcu*
 
 ## Summary Statistics
@@ -56,7 +56,7 @@ One way to perform this step is to create a chunk of files with the source data.
 
 Another issue arises with this workflow. It is impossible to translate the `n` chunks of files in a loop with Stata. In fact, Stata crashes when to total amount of files translated exceed 450MB.
 
-One can manually open Stata for every `n files, translated them and make sure the size is lower than 450MB, although this is a time-consuming process and prompt to error.
+One can manually open Stata for every `n` files, translated them and make sure the size is lower than 450MB, although this is a time-consuming process and prompt to error.
 
 In the Normalization Workflow section, we will detail the workaround we used to automatize the translation step.
 
@@ -84,7 +84,7 @@ The diagram below shows the pipeline
 
 <img src="https://github.com/thomaspernet/Chinese_Trade_Data/raw/master/img/1.png">
 
-The overall process is in the file named `01_all_process.sh`  and a jupyter notebook. The `sh file deals with the Stata part while Python takes care of the remaining stages.
+The overall process is in the file named `01_all_process.sh`  and a jupyter notebook. The `sh` file deals with the Stata part while Python takes care of the remaining stages.
 
 The jupyter notebook pilots the overall translating and normalization process while calling the shell when required. All the program works in a loop and explicitly proceeds as follow:
 
