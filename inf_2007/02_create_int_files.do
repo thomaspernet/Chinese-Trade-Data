@@ -5,10 +5,10 @@ set more off
 
 ** If year is 2005 or 2006, we change the strategy
 
-local y = 2006
+local y = 2010
 if `y' == 2005 | `y' ==2006 {
 
-        	use paddr using data2006.dta, clear
+        	use paddr using data2010.dta, clear
 			gen group = ceil(15 * _n/_N)
 			tab group
      		save temp_address.dta, replace
@@ -24,10 +24,10 @@ if `y' == 2005 | `y' ==2006 {
 			}
 
 			erase temp_address.dta
-			use exp_or_imp hs_id party_id company city companytype country shipment value quantity using data2006.dta, clear
+			use exp_or_imp hs_id party_id company city companytype country shipment value quantity using data2010.dta, clear
 			gen group = ceil(15 * _n/_N)
 			tab group
-			erase data2006.dta
+			erase data2010.dta
 			save temp.dta, replace
 
 
@@ -46,7 +46,7 @@ if `y' == 2005 | `y' ==2006 {
 	  			drop if hs6 >"980000"
 				erase address-`code'.dta
 				collapse (sum)value (sum)quantity, by(exp_or_imp hs6 party_id company paddr city companytype country shipment)
-	  			gen Date = "2006"
+	  			gen Date = "2010"
 	  			rename Date Date 
 	  			rename exp_or_imp imp_exp
 	  			rename hs6 HS
@@ -64,18 +64,19 @@ if `y' == 2005 | `y' ==2006 {
       			*use temp.dta if group != `code', clear
       			*drop if sav == `code'
       			*save temp.dta, replace	
+      			}
       		}
 
 			else  {
 
- 				use exp_or_imp hs_id party_id company city companytype country shipment value quantity using data2006.dta, clear
+ 				use exp_or_imp hs_id party_id company city paddr companytype country shipment value quantity using data2010.dta, clear
 
 				*split the file in 3 to collapse data faster 
 				* add valperunit in following year
 
-				gen group = ceil(15 * _n/_N)}
+				gen group = ceil(15 * _n/_N)
 
-				erase data2006.dta
+				erase data2010.dta
 				save temp.dta, replace
 				local data temp.dta, clear
 				foreach code in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15{
@@ -89,7 +90,7 @@ if `y' == 2005 | `y' ==2006 {
 	  				count if length(hs6)<6
 	  				drop if hs6 >"980000"
 	  				collapse (sum)value (sum)quantity, by(exp_or_imp hs6 party_id company paddr city companytype country shipment)
-	  				gen Date = "2006"
+	  				gen Date = "2010"
 	  				rename Date Date 
 	  				rename exp_or_imp imp_exp
 	  				rename hs6 HS
@@ -108,8 +109,8 @@ if `y' == 2005 | `y' ==2006 {
       				*drop if sav == `code'
       				*save temp.dta, replace
 					}
- 			}
  		}
+ 		
 
 
 

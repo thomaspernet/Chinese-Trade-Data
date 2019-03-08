@@ -3,7 +3,7 @@
 ################### DEFINE WORKING PATH ################
 ########################################################
 
-export YEAR=2006
+export YEAR=2010
 export THRESHOLD=2006
 export WORKING_PATH="/Users/Thomas/Downloads/Stata_translate"
 export FILENAME=$WORKING_PATH/data_$YEAR.rar
