@@ -22,8 +22,8 @@ The files are accessibles here:
 
 - [Google Drive](https://drive.google.com/open?id=19s7TfUL3g34NeEhixXYzcgUbzGWsiK18)
 - Big Query (upon request)
-- [Baidu Yun](https://pan.baidu.com/s/168PzE8TpAXfQIUBkFW2pHA)
-  - password: *gwcu*
+- [Baidu Yun](https://pan.baidu.com/s/1DDCLq7OchEVP9NZOKvQC0g)
+  - password: *2nbx*
 
 ## Summary Statistics
 
